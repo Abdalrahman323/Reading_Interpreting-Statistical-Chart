@@ -1,1 +1,2 @@
 # Reading_Interpreting-Statistical-Chart
+Given an image that contains a statistical chart (pie or bar) and the color of each category (i.e. legend), the program should extract statistical information of each category
