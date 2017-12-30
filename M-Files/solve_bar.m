@@ -1,9 +1,9 @@
 function [ mat ] = solve_bar( img )
 
 I=img;
-%I=imread('2.png');
+%I=imread('2.jpg');
 I_original=I;
-I=imresize(I,[750 1000]);
+I=imresize(I,[1000 750]);
 orig=I;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -148,7 +148,7 @@ if(xmin~=1 &&ymin~=1&&test_borders~=W)
 out=imcrop(orig,[xmin,ymin,width,height]);
   bottom=ymin+height;
     vertical_bar=bottom-Y_vertical_bar+1; % height of the vertical bar
-   values(k,1)= ceil((height/vertical_bar)*X);
+   values(k,1)= ceil(((height/vertical_bar))*X);
    values(k,2)=mean(mean(out(:,:,1)));  % get the avg of the red channel
    values(k,3)=mean(mean(out(:,:,2)));
    values(k,4)=mean(mean(out(:,:,3)));

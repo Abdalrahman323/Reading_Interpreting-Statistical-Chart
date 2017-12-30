@@ -123,7 +123,7 @@ if(L>1)
 i=rgb2gray(i);
 end
 
-i=imbinarize(i,0.95);
+i=imbinarize(i,0.97);
 i=not(i);
 
 se=strel('line',6,90);
@@ -131,15 +131,16 @@ i=imerode(i,se);
 
 se=strel('line',6,0);
 i=imerode(i,se);
-    se=strel('rectangle',[12 30]);
+    se=strel('rectangle',[12 25]);
    i=imdilate(i,se);
 
 
 eroded_img=i;
 %%%%%%%%%%%%%%%%%%
-%figure,imshow(eroded_img);
+figure,imshow(eroded_img);
 %%%%%%%%%%%%%%%%%%
 k=crop_box(eroded_img,original_img);
+%k is the legend box
 axes(handles.axes2);
 imshow(k);
 handles.orig=original_img;
@@ -295,15 +296,15 @@ if(strcmp(l,'vertical'))
 else
     im=rgb2gray(im);
 
-    im=imbinarize(im,0.93);
+    im=imbinarize(im,0.97);
     im=not(im);
 
 
-    se=strel('line',6,90);
+    se=strel('line',4,90);
 
     im=imerode(im,se);
 
-    se=strel('line',6,0);
+    se=strel('line',4,0);
     im=imerode(im,se);
 
 
@@ -400,7 +401,7 @@ else
     for i=1:num
         tmp=values(i);
    t= title(s(i),num2str(tmp));
-   pos = get ( t, 'position' )
+   pos = get ( t, 'position' );
    new_position=pos;
    new_position(1)=new_position(1)+150;
    new_position(2)=new_position(2)+75;
